@@ -17,6 +17,7 @@ jobs:
         run: mvn compile
   security-check:
     runs-on: ubuntu-22.04
+    needs: compile
     steps:
       - uses: actions/checkout@v7
       - name: Trivy security scan
