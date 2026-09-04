@@ -1,1 +1,17 @@
-
+name: end to end project
+on:
+  push:
+    branches:
+      - master
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: java --version
+      - name: Build with maven
+        run: mvn compile
