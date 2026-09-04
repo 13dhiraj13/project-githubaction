@@ -24,4 +24,12 @@ jobs:
         run: trivy fs --format table -o fs-report.json .
       - name: git leak code scan
         run: gitleaks detect source . -r gitleaks-report.json -f json
+  tests:
+    runs-on: self-hosted
+    needs: security-check
+    steps:
+      - uses: actions/checkout@v7
+      - name: Run the test cases
+        run: mvn test
+    
       
