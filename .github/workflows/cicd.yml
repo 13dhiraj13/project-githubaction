@@ -52,7 +52,7 @@ jobs:
       - uses: actions/upload-artifact@v7
         with:
           name: app-jar
-          path: target/* .jar
+          path: target/*.jar
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
